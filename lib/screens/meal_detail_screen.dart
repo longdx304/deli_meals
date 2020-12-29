@@ -44,7 +44,14 @@ class MealDetailScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.network(selectedMeal.imageUrl),
+            Container(
+              height: 300,
+              width: double.infinity,
+              child: Image.network(
+                selectedMeal.imageUrl,
+                fit: BoxFit.cover,
+              ),
+            ),
             buildSectionTitle(context: context, text: 'Ingredients'),
             buildContainerLayout(ListView.builder(
               itemBuilder: (context, index) => Card(
