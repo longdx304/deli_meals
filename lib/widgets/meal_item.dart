@@ -49,11 +49,15 @@ class MealItem extends StatelessWidget {
   }
 
   void selectMeal(BuildContext context) => Navigator.of(context)
-      .pushNamed(
+          .pushNamed(
         MealDetailScreen.routeName,
         arguments: id,
       )
-      .then((mealId) => removeItem(mealId));
+          .then((mealId) {
+        if (mealId != null) {
+          removeItem(mealId);
+        }
+      });
 
   @override
   Widget build(BuildContext context) {
